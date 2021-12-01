@@ -49,5 +49,13 @@ const person = {
   name: '홍길동',
   age: 25,
   isProgramer: true,
-  say: function () {},
+  say() {
+    console.log('Hello~!');
+  },
 };
+
+const arr = [1, 2, 3, 4, 5];
+
+console.log(arr.length);
+arr.push(88);
+console.log(arr);

@@ -21,19 +21,20 @@
       <div class="card__title">Todo App</div>
       <div class="card__content">
         <div class="input-field">
-          <input type="text" placeholder="Task를 입력해주세요." />
-          <button><i class="fas fa-plus"></i></button>
+          <input
+            id="input-box"
+            type="text"
+            placeholder="Task를 입력해주세요."
+          />
+          <button id="add-btn">
+            <i class="fas fa-plus"></i>
+          </button>
         </div>
-        <ul class="todo-list">
-          <li>
-            운동하기
-            <span class="icon"><i class="fas fa-trash"></i></span>
-          </li>
-        </ul>
+        <ul class="todo-list" id="todo-list"></ul>
       </div>
       <div class="card__footer">
-        <span><span>3</span> tasks</span>
-        <button>전체 삭제</button>
+        <span><span id="todo-count"></span> tasks</span>
+        <button id="clear-all">전체 삭제</button>
       </div>
     </div>
   </body>

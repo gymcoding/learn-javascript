@@ -28,8 +28,7 @@ $addBtn.addEventListener('click', function () {
   localStorage.setItem('todoList', JSON.stringify(todoList));
   appendTodoItem(todoItem);
   // 카운트 변경
-  const $itemList = $todoList.querySelectorAll('li');
-  $todoCount.textContent = $itemList.length;
+  updateTodoCount();
   // input box clear
   $inputBox.value = '';
   // 전체삭제 버튼 활성화
@@ -58,10 +57,7 @@ function deleteTask(e) {
   localStorage.setItem('todoList', JSON.stringify(todoList));
 
   $li.remove();
-  let value = $todoCount.textContent;
-  let count = parseInt(value);
-  count--;
-  $todoCount.textContent = count;
+  updateTodoCount();
 
   //전체삭제 버튼 비활성화
   const $itemList = $todoList.querySelectorAll('li');
@@ -74,8 +70,12 @@ $clearAll.addEventListener('click', function () {
   $todoList.innerHTML = '';
   $todoCount.textContent = 0;
   todoList = [];
-  localStorage.setItem('todoList', '');
+  localStorage.removeItem('todoList');
 });
+
+function updateTodoCount() {
+  $todoCount.textContent = todoList.length;
+}
 
 function showTasks() {
   const todoItems = localStorage.getItem('todoList');
@@ -84,8 +84,8 @@ function showTasks() {
     for (let todoItem of todoList) {
       appendTodoItem(todoItem);
     }
-    $todoCount.textContent = todoList.length;
     $clearAll.classList.add('active');
   }
+  updateTodoCount();
 }
 showTasks();
